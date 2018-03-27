@@ -55,6 +55,14 @@ com.qingguatang.[businessName]
 ## 4. 数据库代码生成
 默认添加了mybatis的generate实现，可以通过dao工程的` com.qingguatang.product.MybatisGenerateRun ` 这个类运行，生成dao、dataobject、xml。
 
-需要注意的是 手工修改下`dao.properties`文件，改成你需要的表名，另外，不支持重复生成，所以只解决第一次初始化的问题
+需要注意的是 手工修改下`dao.properties`文件,文件内容如下，改成你需要的表名，另外，不支持重复生成，所以只解决第一次初始化的问题
+
+```
+domainObjectName=CategoryDO
+mapperName=CategoryDAO
+schema=product
+tableName=category
+```
+
 
 生成完后，需要再dao接口类上，手工添加 `@Mapper`,并完善注释
