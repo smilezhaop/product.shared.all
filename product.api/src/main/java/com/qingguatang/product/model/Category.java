@@ -9,7 +9,7 @@ public class Category {
 
   private String name;
 
-  private String media_id;
+  private String mediaId;
 
   private CategoryStatus status;
 
@@ -33,12 +33,12 @@ public class Category {
     this.name = name;
   }
 
-  public String getMedia_id() {
-    return media_id;
+  public String getMediaId() {
+    return mediaId;
   }
 
-  public void setMedia_id(String media_id) {
-    this.media_id = media_id;
+  public void setMediaId(String mediaId) {
+    this.mediaId = mediaId;
   }
 
   public CategoryStatus getStatus() {
