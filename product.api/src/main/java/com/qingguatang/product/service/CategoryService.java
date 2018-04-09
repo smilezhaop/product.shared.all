@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 类目基础服务：提供类目创建、修改、排序等功能
  */
-public interface CategoryService {
+public interface CategoryService extends MediaService{
 
   /**
    * 类目创建更新
