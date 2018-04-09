@@ -4,6 +4,8 @@ import com.qingguatang.product.model.MediaType;
 
 /**
  * 多媒体查询参数
+ * @author zhaopei
+ * @date 2018/4/8
  */
 public class MediaQueryParam {
 

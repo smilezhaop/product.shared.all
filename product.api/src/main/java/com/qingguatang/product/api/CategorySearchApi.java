@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * 类目查询服务：提供类目查询功能
+ * @author zhaopei
+ * @date 2018/4/8
  */
 public interface CategorySearchApi {
 

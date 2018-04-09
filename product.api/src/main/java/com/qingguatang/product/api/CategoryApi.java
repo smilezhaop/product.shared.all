@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * 类目API：提供类目创建、修改、删除、排序功能
+ * @author zhaopei
+ * @date 2018/4/8
  */
 public interface CategoryApi extends CategoryService{
 

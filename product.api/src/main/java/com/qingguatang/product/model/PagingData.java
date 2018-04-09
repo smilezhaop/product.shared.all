@@ -2,6 +2,8 @@ package com.qingguatang.product.model;
 
 /**
  * 统一返回集合模型：用于封装集合查询的结果
+ * @author zhaopei
+ * @date 2018/4/8
  */
 public class PagingData<T> {
 

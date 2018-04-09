@@ -2,6 +2,8 @@ package com.qingguatang.product.model;
 
 /**
  * 统一返回模型，用于封装事务操作的结果
+ * @author zhaopei
+ * @date 2018/4/8
  */
 public class Result<T> {
 
