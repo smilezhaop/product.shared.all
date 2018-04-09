@@ -7,4 +7,7 @@ package com.qingguatang.product.param;
  */
 public class CategoryParam {
 
+  private String name;
+
+
 }
