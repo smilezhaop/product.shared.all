@@ -1,5 +1,6 @@
 package com.qingguatang.product.control;
 
+import com.qingguatang.product.api.CategorySearchApi;
 import com.qingguatang.product.dao.CategoryDAO;
 import com.qingguatang.product.dataobject.CategoryDO;
 import com.qingguatang.product.model.Category;
@@ -9,8 +10,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-public class CategorySearchApiControl {
+@Controller
+public class CategorySearchApiControl implements CategorySearchApi{
 
   @Autowired
   private CategoryDAO categoryDAO;

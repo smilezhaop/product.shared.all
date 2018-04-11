@@ -1,5 +1,6 @@
 package com.qingguatang.product.service.impl;
 
+import com.qingguatang.product.dataobject.CategoryDO;
 import com.qingguatang.product.model.Category;
 import com.qingguatang.product.model.Media;
 import com.qingguatang.product.model.Result;
@@ -10,6 +11,14 @@ public class CategoryServiceImpl implements CategoryService {
 
   @Override
   public Result<Category> addOrUpdate(Category category){
+
+    CategoryDO categoryDO = new CategoryDO();
+    categoryDO.setId(category.getId());
+    categoryDO.setName(category.getName());
+    categoryDO.setMediaId(category.getMediaId());
+    categoryDO.setStatus(category.getStatus().toString());
+    categoryDO.setSort(category.getSort());
+    categoryDO.setParentCategoryId(category.getParentCategoryId());
 
     return null;
   }

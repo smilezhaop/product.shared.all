@@ -10,7 +10,7 @@ import java.util.List;
  * @author zhaopei
  * @date 2018/4/8
  */
-public interface CategoryApi {
+public interface CategoryApi extends CategoryService{
 
   public Result<List<Category>> save(List<Category> categorys);
 

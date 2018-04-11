@@ -30,6 +30,13 @@ public interface CategoryDAO {
     List<CategoryDO> query(CategoryQueryParam param);
 
     /**
+     * 根据ID查询
+     * @param id
+     * @return
+     */
+    CategoryDO selectById(String id);
+
+    /**
      * 更新修改
      * @param record
      * @return
