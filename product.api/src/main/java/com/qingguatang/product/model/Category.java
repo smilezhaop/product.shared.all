@@ -1,5 +1,7 @@
 package com.qingguatang.product.model;
 
+import java.util.List;
+
 /**
  * 类目模型
  * @author zhaopei
@@ -8,16 +10,18 @@ package com.qingguatang.product.model;
 public class Category {
 
   private String id;
-
+  //类目名称
   private String name;
-
+  //媒体ID
   private String mediaId;
-
+  //类目状态
   private CategoryStatus status;
-
+  //排序
   private long sort;
-
+  //父类目ID
   private String parentCategoryId;
+
+  private List<Category> categoryExtends;
 
   public String getId() {
     return id;
@@ -65,5 +69,14 @@ public class Category {
 
   public void setParentCategoryId(String parentCategoryId) {
     this.parentCategoryId = parentCategoryId;
+  }
+
+  public List<Category> getCategoryExtends() {
+    return categoryExtends;
+  }
+
+  public void setCategoryExtends(
+      List<Category> categoryExtends) {
+    this.categoryExtends = categoryExtends;
   }
 }

@@ -13,6 +13,8 @@ public class MediaQueryParam {
 
   private MediaType type;
 
+  private String url;
+
   private String accountId;
 
   public String getRefId() {
@@ -29,6 +31,14 @@ public class MediaQueryParam {
 
   public void setType(MediaType type) {
     this.type = type;
+  }
+
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
   public String getAccountId() {

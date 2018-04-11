@@ -18,7 +18,7 @@ public class CategorySearchApiControl {
   @Override
   public List<Category> query(CategoryQueryParam param){
 
-    List<CategoryDO> categoryDOList = categoryDAO.query();
+    List<CategoryDO> categoryDOList = categoryDAO.query(param);
 
     Map<String, CategoryExtend> categoryMap = new LinkedHashMap<>();
     //把List转换为Map对象
@@ -37,10 +37,10 @@ public class CategorySearchApiControl {
         parent.setId("0");
         categoryMap.put("0",parent);
       }
-      category.getChildren().add(category);
+      category.getCategoryExtends().add(category);
     });
 
-    List<Category> categories = categoryMap.get("0").getChildren();
+    List<Category> categories = categoryMap.get("0").getCategoryExtends();
 
     return categories;
 
