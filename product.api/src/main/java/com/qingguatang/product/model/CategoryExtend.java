@@ -10,7 +10,6 @@ public class CategoryExtend extends Category{
 
   private String parentCategoryId;
 
-  private List<CategoryExtend> categoryExtends;
 
   @Override
   public String getId() {
@@ -42,13 +41,5 @@ public class CategoryExtend extends Category{
     this.parentCategoryId = parentCategoryId;
   }
 
-  @Override
-  public List<CategoryExtend> getCategoryExtends() {
-    return categoryExtends;
-  }
 
-  public void setCategoryExtends(
-      List<CategoryExtend> categoryExtends) {
-    this.categoryExtends = categoryExtends;
-  }
 }
