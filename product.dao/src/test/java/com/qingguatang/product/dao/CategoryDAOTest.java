@@ -1,5 +1,8 @@
 package com.qingguatang.product.dao;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.qingguatang.product.dataobject.CategoryDO;
 import com.qingguatang.util.IDUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,9 +24,22 @@ public class CategoryDAOTest {
 
   private String id = IDUtil.get();
 
+  @Autowired
+  private CategoryDAO categoryDAO;
+
   @Test
   public void insertTest() {
+    CategoryDO categoryDO = new CategoryDO();
+    categoryDO.setId(id);
+    categoryDO.setName("工具类");
+    categoryDO.setMediaId("0012");
+    categoryDO.setStatus("ENABLED");
+    categoryDO.setSort(02l);
+    categoryDO.setParentCategoryId("");
 
+    int size = categoryDAO.insert(categoryDO);
+
+    assertThat(size).isGreaterThan(0);
   }
 
 

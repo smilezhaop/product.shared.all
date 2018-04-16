@@ -1,6 +1,9 @@
 package com.qingguatang.product.dataobject;
 
+import java.util.Date;
+
 public class MediaDO {
+    /**主键，唯一*/
     private Long id;
 
     /**关联资源ID*/
@@ -14,6 +17,12 @@ public class MediaDO {
 
     /**资源上传者账户ID*/
     private String accountId;
+
+    /**创建时间*/
+    private Date gmtCreated;
+
+    /**修改时间*/
+    private Date gmtModified;
 
     public Long getId() {
         return id;
@@ -61,5 +70,25 @@ public class MediaDO {
     /**设置资源上传者账户ID*/
     public void setAccountId(String accountId) {
         this.accountId = accountId;
+    }
+
+    /**获取创建时间*/
+    public Date getGmtCreated() {
+        return gmtCreated;
+    }
+
+    /**设置创建时间*/
+    public void setGmtCreated(Date gmtCreated) {
+        this.gmtCreated = gmtCreated;
+    }
+
+    /**获取修改时间*/
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    /**设置修改时间*/
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 }

@@ -1,6 +1,7 @@
 package com.qingguatang.product.dao;
 
 import com.qingguatang.product.dataobject.MediaDO;
+import com.qingguatang.product.param.MediaQueryParam;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -19,23 +20,23 @@ public interface MediaDAO {
      * @param record
      * @return
      */
-    int insert(MediaDO record);
+    int add(MediaDO record);
 
     /**
-     * 查询
+     * 根据ID查询
      * @param id
      * @return
      */
     MediaDO selectByPrimaryKey(Long id);
 
     /**
-     * 查询所有
+     * 根据参数查询
      * @return
      */
-    List<MediaDO> selectAll();
+    List<MediaDO> query(MediaQueryParam param);
 
     /**
-     * 修改更新
+     *
      * @param record
      * @return
      */

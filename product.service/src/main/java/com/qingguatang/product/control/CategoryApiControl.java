@@ -4,16 +4,15 @@ import com.qingguatang.product.api.CategoryApi;
 import com.qingguatang.product.dao.CategoryDAO;
 import com.qingguatang.product.dao.MediaDAO;
 import com.qingguatang.product.dataobject.CategoryDO;
+import com.qingguatang.product.dataobject.MediaDO;
 import com.qingguatang.product.model.Category;
 
-import com.qingguatang.product.model.CategoryExtend;
 import com.qingguatang.product.model.Media;
 import com.qingguatang.product.model.Result;
 import com.qingguatang.product.param.CategoryQueryParam;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -26,8 +25,7 @@ public class CategoryApiControl extends CategorySearchApiControl implements Cate
 
   @Autowired
   private CategoryDAO categoryDAO;
-  @Autowired
-  private MediaDAO mediaDAO;
+
 
   /**
    * 添加修改保存
@@ -103,6 +101,7 @@ public class CategoryApiControl extends CategorySearchApiControl implements Cate
 
   @Override
   public Result<Media> add(Media media) {
+
     return null;
   }
 

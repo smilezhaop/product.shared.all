@@ -7,32 +7,39 @@
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="account_id" jdbcType="VARCHAR" property="accountId" />
+    <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from product_media_resource
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.qingguatang.product.dataobject.MediaDO">
+  <insert id="add" parameterType="com.qingguatang.product.model.Media">
     insert into product_media_resource (id, ref_Id, type, 
-      url, account_id)
+      url, account_id, gmt_created, 
+      gmt_modified)
     values (#{id,jdbcType=BIGINT}, #{refId,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
-      #{url,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR})
+      #{url,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR}, now(),now())
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.qingguatang.product.dataobject.MediaDO">
     update product_media_resource
     set ref_Id = #{refId,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},
-      account_id = #{accountId,jdbcType=VARCHAR}
+      account_id = #{accountId,jdbcType=VARCHAR},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, ref_Id, type, url, account_id
+    select id, ref_Id, type, url, account_id, gmt_created, gmt_modified
     from product_media_resource
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, ref_Id, type, url, account_id
+  <select id="query" parameterType="com.qingguatang.product.param.MediaQueryParam"
+    resultMap="BaseResultMap">
+    select id, ref_Id, type, url, account_id, gmt_created, gmt_modified
     from product_media_resource
+    WHERE ref_Id = #{refId}
   </select>
 </mapper>

@@ -7,6 +7,21 @@ package com.qingguatang.product.model;
  */
 public class PagingData<T> {
 
+  //总条数
+  private int totalItems;
+
+  //总页数
+  private int totalPages;
+
+  //每页条数
+  private int pageSize;
+
+  //当前页
+  private int currentPage;
+
+  //数据
+  private T data;
+
   public int getTotalItems() {
     return totalItems;
   }
@@ -47,15 +62,7 @@ public class PagingData<T> {
     this.data = data;
   }
 
-  private int totalItems;
 
-  private int totalPages;
-
-  private int pageSize;
-
-  private int currentPage;
-
-  private T data;
 
 
 
