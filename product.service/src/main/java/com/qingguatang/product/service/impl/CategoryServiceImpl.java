@@ -1,13 +1,19 @@
 package com.qingguatang.product.service.impl;
 
+import com.qingguatang.product.dao.CategoryDAO;
 import com.qingguatang.product.dataobject.CategoryDO;
 import com.qingguatang.product.model.Category;
 import com.qingguatang.product.model.Media;
 import com.qingguatang.product.model.Result;
 import com.qingguatang.product.service.CategoryService;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class CategoryServiceImpl implements CategoryService {
+  @Autowired
+  CategoryDAO categoryDAO;
 
   @Override
   public Result<Category> addOrUpdate(Category category){
@@ -19,14 +25,23 @@ public class CategoryServiceImpl implements CategoryService {
     categoryDO.setStatus(category.getStatus().toString());
     categoryDO.setSort(category.getSort());
     categoryDO.setParentCategoryId(category.getParentCategoryId());
+    categoryDAO.update(categoryDO);
 
-    return null;
+    Result result = new Result<Category>();
+    //假定成功
+    result.setSuccess(true);
+    result.setData(category);
+
+    return result;
   }
 
   @Override
   public Result delete(String categoryId){
+    Result result = new Result();
+    categoryDAO.delete(categoryId);
+    result.setSuccess(true);
 
-    return null;
+    return result;
   }
 
   @Override
