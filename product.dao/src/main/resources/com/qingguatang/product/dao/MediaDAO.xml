@@ -14,7 +14,7 @@
     delete from product_media_resource
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="add" parameterType="com.qingguatang.product.model.Media">
+  <insert id="insert" parameterType="com.qingguatang.product.dataobject.MediaDO">
     insert into product_media_resource (id, ref_Id, type, 
       url, account_id, gmt_created, 
       gmt_modified)

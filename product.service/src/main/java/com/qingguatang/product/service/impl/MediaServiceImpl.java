@@ -22,7 +22,7 @@ public class MediaServiceImpl implements MediaService{
     mediaDO.setType(media.getType().toString());
     mediaDO.setUrl(media.getUrl());
     mediaDO.setAccountId(media.getAccountId());
-    mediaDAO.add(mediaDO);
+    mediaDAO.insert(mediaDO);
 
     Result result = new Result<Media>();
     result.setSuccess(true);

@@ -20,7 +20,7 @@ public interface MediaDAO {
      * @param record
      * @return
      */
-    int add(MediaDO record);
+    int insert(MediaDO record);
 
     /**
      * 根据ID查询
