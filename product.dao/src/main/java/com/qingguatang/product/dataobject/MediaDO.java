@@ -1,5 +1,7 @@
 package com.qingguatang.product.dataobject;
 
+import com.qingguatang.product.model.Media;
+import com.qingguatang.product.model.MediaType;
 import java.util.Date;
 
 public class MediaDO {
@@ -90,5 +92,16 @@ public class MediaDO {
     /**设置修改时间*/
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
+    }
+
+
+    public Media convert(){
+        Media media = new Media();
+        media.setId(getId());
+        media.setRefId(getRefId());
+        media.setUrl(getUrl());
+        media.setType(MediaType.valueOf(getType()));
+        media.setAccountId(getAccountId());
+        return  media;
     }
 }

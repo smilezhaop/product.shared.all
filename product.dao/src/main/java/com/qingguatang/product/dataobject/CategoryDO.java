@@ -5,7 +5,7 @@ import com.qingguatang.product.model.CategoryStatus;
 import java.util.Date;
 
 public class CategoryDO {
-    /**主键，唯一*/
+
     private String id;
 
     /**创建时间*/
