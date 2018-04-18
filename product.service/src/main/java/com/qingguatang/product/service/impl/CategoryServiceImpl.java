@@ -25,8 +25,13 @@ public class CategoryServiceImpl implements CategoryService {
     categoryDO.setStatus(category.getStatus().toString());
     categoryDO.setSort(category.getSort());
     categoryDO.setParentCategoryId(category.getParentCategoryId());
-    categoryDAO.update(categoryDO);
 
+    CategoryDO categoryDoQuery = categoryDAO.selectById(category.getId());
+    if(categoryDoQuery.equals("")){//add
+      categoryDAO.insert(categoryDO);
+    }else{//update
+      categoryDAO.update(categoryDO);
+    }
     Result result = new Result<Category>();
     //假定成功
     result.setSuccess(true);
