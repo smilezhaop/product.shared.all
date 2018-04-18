@@ -1,15 +1,11 @@
 package com.qingguatang.product.control;
 
 import com.qingguatang.product.api.CategoryApi;
-import com.qingguatang.product.dao.CategoryDAO;
-import com.qingguatang.product.dao.MediaDAO;
-import com.qingguatang.product.dataobject.CategoryDO;
-import com.qingguatang.product.dataobject.MediaDO;
 import com.qingguatang.product.model.Category;
-
 import com.qingguatang.product.model.Media;
 import com.qingguatang.product.model.Result;
 import com.qingguatang.product.param.CategoryQueryParam;
+import com.qingguatang.product.service.impl.CategoryServiceImpl;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +20,7 @@ import org.springframework.stereotype.Controller;
 public class CategoryApiControl extends CategorySearchApiControl implements CategoryApi {
 
   @Autowired
-  private CategoryDAO categoryDAO;
+  private CategoryServiceImpl categoryService;
 
 
   /**
@@ -65,32 +61,21 @@ public class CategoryApiControl extends CategorySearchApiControl implements Cate
         for (Category categoryl:categoryList
         ) {
           if(categoryMapNew.containsKey(categoryl.getId())){//存在，修改更新
-            CategoryDO categoryDO = getCategoryDO(category);
-            categoryDAO.update(categoryDO);
+         //   CategoryDO categoryDO = getCategoryDO(category);
+            categoryService.addOrUpdate(categoryl);
+         //   categoryDAO.update(categoryDO);
           }else{//不存在，删除
-            categoryDAO.delete(categoryl.getId());
+            categoryService.delete(categoryl.getId());
           }
         }
       }else{//不存在，增加insert
-        CategoryDO categoryDO = getCategoryDO(category);
-        categoryDAO.insert(categoryDO);
+        categoryService.addOrUpdate(category);
 
       }
     }
     results.setData(categorys);
 
     return results;
-  }
-
-  private CategoryDO getCategoryDO(Category category) {
-    CategoryDO categoryDO = new CategoryDO();
-    categoryDO.setId(category.getId());
-    categoryDO.setName(category.getName());
-    categoryDO.setMediaId(category.getMediaId());
-    categoryDO.setStatus(category.getStatus().toString());
-    categoryDO.setSort(category.getSort());
-    categoryDO.setParentCategoryId(category.getParentCategoryId());
-    return categoryDO;
   }
 
 
