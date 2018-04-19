@@ -9,7 +9,7 @@ import java.util.List;
  * @author zhaopei
  * @date 2018/4/8
  */
-public interface CategoryService {
+public interface CategoryService extends MediaService{
 
   /**
    * 类目创建更新
