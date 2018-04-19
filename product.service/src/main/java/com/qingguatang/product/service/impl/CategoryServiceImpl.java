@@ -55,9 +55,5 @@ public class CategoryServiceImpl implements CategoryService {
     return null;
   }
 
-  @Override
-  public Result<Media> add(Media media){
 
-    return null;
-  }
 }
