@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author zhaopei
@@ -29,7 +31,7 @@ public class CategoryApiControl extends CategorySearchApiControl implements Cate
    * @return
    */
   @Override
-  public Result<List<Category>> save(List<Category> categorys) {
+  public Result<List<Category>> save(@RequestBody List<Category> categorys) {
 
     Result results = new Result<List<Category>>();
     results.setSuccess(true);
@@ -79,24 +81,5 @@ public class CategoryApiControl extends CategorySearchApiControl implements Cate
   }
 
 
-  @Override
-  public Result<Category> addOrUpdate(Category category) {
-    return null;
-  }
 
-  @Override
-  public Result<Media> add(Media media) {
-
-    return null;
-  }
-
-  @Override
-  public Result delete(String categoryId) {
-    return null;
-  }
-
-  @Override
-  public Result sort(List<Category> categorys) {
-    return null;
-  }
 }
