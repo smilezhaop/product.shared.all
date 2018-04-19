@@ -17,7 +17,7 @@ public interface CategorySearchApi {
    * @param param
    * @return
    */
-  @ResponseBody
+
   public List<Category> query(CategoryQueryParam param);
 
 }
