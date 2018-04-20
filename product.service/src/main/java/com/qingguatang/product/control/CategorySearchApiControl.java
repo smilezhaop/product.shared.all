@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class CategorySearchApiControl implements CategorySearchApi{
@@ -19,7 +20,7 @@ public class CategorySearchApiControl implements CategorySearchApi{
   private CategoryDAO categoryDAO;
 
   @Override
-  public List<Category> query(CategoryQueryParam param){
+  public List<Category> query( CategoryQueryParam param){
 
     List<CategoryDO> categoryDOList = categoryDAO.query(param);
 

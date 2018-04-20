@@ -3,6 +3,7 @@ package com.qingguatang.product.api;
 import com.qingguatang.product.model.Category;
 import com.qingguatang.product.param.CategoryQueryParam;
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -17,7 +18,6 @@ public interface CategorySearchApi {
    * @param param
    * @return
    */
-
   public List<Category> query(CategoryQueryParam param);
 
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 public interface CategoryApi {
 
-  @RequestMapping(path = "api/category/save")
+  @RequestMapping(path = "api/category/save",produces = "application/json")
   @ResponseBody
   public Result<List<Category>> save(List<Category> categorys);
 
