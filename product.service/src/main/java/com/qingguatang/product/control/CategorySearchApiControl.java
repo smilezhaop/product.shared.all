@@ -20,7 +20,7 @@ public class CategorySearchApiControl implements CategorySearchApi{
   private CategoryDAO categoryDAO;
 
   @Override
-  public List<Category> query( CategoryQueryParam param){
+  public List<Category> query(@RequestBody CategoryQueryParam param){
 
     List<CategoryDO> categoryDOList = categoryDAO.query(param);
 

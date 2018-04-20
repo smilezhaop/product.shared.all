@@ -18,6 +18,8 @@ public interface CategorySearchApi {
    * @param param
    * @return
    */
+  @RequestMapping(path = "api/category/query",produces = "application/json")
+  @ResponseBody
   public List<Category> query(CategoryQueryParam param);
 
 }
