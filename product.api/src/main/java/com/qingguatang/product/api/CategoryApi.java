@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 public interface CategoryApi {
 
+  /**
+   * 保存操作
+   * @param categorys
+   * @return
+   */
   @RequestMapping(path = "api/category/save",produces = "application/json")
   @ResponseBody
   public Result<List<Category>> save(List<Category> categorys);

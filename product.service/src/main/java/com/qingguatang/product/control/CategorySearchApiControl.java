@@ -12,8 +12,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class CategorySearchApiControl implements CategorySearchApi{
@@ -21,8 +19,6 @@ public class CategorySearchApiControl implements CategorySearchApi{
   @Autowired
   private CategoryDAO categoryDAO;
 
-  @RequestMapping(path = "api/category/query",produces = "application/json")
-  @ResponseBody
   @Override
   public List<Category> query(CategoryQueryParam param){
 
