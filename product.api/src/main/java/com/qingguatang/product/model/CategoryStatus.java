@@ -6,5 +6,5 @@ package com.qingguatang.product.model;
  * @date 2018/4/8
  */
 public enum CategoryStatus {
-  ENABLED,DISABLED
+  enabled,disabled
 }

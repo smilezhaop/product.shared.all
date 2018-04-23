@@ -2,8 +2,8 @@ package com.qingguatang.product.api;
 
 import com.qingguatang.product.model.Category;
 import com.qingguatang.product.model.Result;
-import com.qingguatang.product.service.CategoryService;
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 

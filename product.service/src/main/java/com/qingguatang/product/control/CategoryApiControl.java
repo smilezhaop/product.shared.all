@@ -2,7 +2,6 @@ package com.qingguatang.product.control;
 
 import com.qingguatang.product.api.CategoryApi;
 import com.qingguatang.product.model.Category;
-import com.qingguatang.product.model.Media;
 import com.qingguatang.product.model.Result;
 import com.qingguatang.product.param.CategoryQueryParam;
 import com.qingguatang.product.service.impl.CategoryServiceImpl;
@@ -12,7 +11,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author zhaopei
@@ -30,8 +28,9 @@ public class CategoryApiControl extends CategorySearchApiControl implements Cate
    * @param categorys
    * @return
    */
+
   @Override
-  public Result<List<Category>> save(@RequestBody List<Category> categorys) {
+  public Result<List<Category>> save(List<Category> categorys) {
 
     Result results = new Result<List<Category>>();
     results.setSuccess(true);

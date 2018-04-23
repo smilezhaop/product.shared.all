@@ -110,6 +110,8 @@ public class CategoryDO {
     public CategoryExtend convert(){
         CategoryExtend categoryExtend = new CategoryExtend();
         categoryExtend.setId(getId());
+        categoryExtend.setGmtCreated(getGmtCreated());
+        categoryExtend.setGmtModified(getGmtModified());
         categoryExtend.setSort(getSort());
         categoryExtend.setName(getName());
         categoryExtend.setStatus(CategoryStatus.valueOf(getStatus()));

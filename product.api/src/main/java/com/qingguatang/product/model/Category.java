@@ -1,5 +1,6 @@
 package com.qingguatang.product.model;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -10,6 +11,10 @@ import java.util.List;
 public class Category {
 
   private String id;
+  //创建时间
+  private Date gmtCreated;
+  //修改时间
+  private Date gmtModified;
   //类目名称
   private String name;
   //媒体ID
@@ -29,6 +34,22 @@ public class Category {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public Date getGmtCreated() {
+    return gmtCreated;
+  }
+
+  public void setGmtCreated(Date gmtCreated) {
+    this.gmtCreated = gmtCreated;
+  }
+
+  public Date getGmtModified() {
+    return gmtModified;
+  }
+
+  public void setGmtModified(Date gmtModified) {
+    this.gmtModified = gmtModified;
   }
 
   public String getName() {

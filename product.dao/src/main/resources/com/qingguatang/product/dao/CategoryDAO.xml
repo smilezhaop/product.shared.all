@@ -37,10 +37,10 @@
       parent_category_id = #{parentCategoryId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <!-- 查询-->
+  <!-- 查询 id, gmt_created, gmt_modified, name, media_id, status, sort, parent_category_id-->
   <select id="query" parameterType="com.qingguatang.product.param.CategoryQueryParam"
     resultMap="BaseResultMap">
-    select id, gmt_created, gmt_modified, name, media_id, status, sort, parent_category_id
+    select *
     from product_category
   </select>
 </mapper>

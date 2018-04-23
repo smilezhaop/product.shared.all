@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author zhaopei
  * @date 2018/4/8
  */
+
 public interface CategorySearchApi {
 
   /**
@@ -18,7 +19,8 @@ public interface CategorySearchApi {
    * @param param
    * @return
    */
-
+  @RequestMapping(path = "api/category/query",produces = "application/json")
+  @ResponseBody
   public List<Category> query(CategoryQueryParam param);
 
 }
