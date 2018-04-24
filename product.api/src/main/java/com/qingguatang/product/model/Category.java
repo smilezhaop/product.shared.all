@@ -26,7 +26,7 @@ public class Category {
   //父类目ID
   private String parentCategoryId;
 
-  private List<Category> categoryExtends;
+  private List<Category> children;
 
   public String getId() {
     return id;
@@ -92,12 +92,11 @@ public class Category {
     this.parentCategoryId = parentCategoryId;
   }
 
-  public List<Category> getCategoryExtends() {
-    return categoryExtends;
+  public List<Category> getChildren() {
+    return children;
   }
 
-  public void setCategoryExtends(
-      List<Category> categoryExtends) {
-    this.categoryExtends = categoryExtends;
+  public void setChildren(List<Category> children) {
+    this.children = children;
   }
 }

@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-public class CategorySearchApiControl implements CategorySearchApi{
+public class CategorySearchApiControl implements CategorySearchApi {
 
   @Autowired
   private CategoryDAO categoryDAO;
 
   @Override
-  public List<Category> query(CategoryQueryParam param){
+  public List<Category> query(CategoryQueryParam param) {
 
     List<CategoryDO> categoryDOList = categoryDAO.query(param);
 
@@ -32,26 +32,30 @@ public class CategorySearchApiControl implements CategorySearchApi{
     for (CategoryDO categoryDO : categoryDOList) {
       //转换do-model
       CategoryExtend category = categoryDO.convert();
-      categoryMap.put(category.getId(),category);
+      categoryMap.put(category.getId(), category);
     }
 
+    if (!categoryMap.containsKey("CROOT")) {
+      CategoryExtend parent = null;
+      categoryMap.put("CROOT", parent);
+    }
     //把子类目放到父类目的children对象里
-    categoryMap.forEach((id,category)->{
+    categoryMap.forEach((id, category) -> {
       CategoryExtend parent = null;
       if (categoryMap.containsKey(category.getParentCategoryId())) {
         parent = categoryMap.get(category.getParentCategoryId());
-      }else {
+      } else {
         parent = new CategoryExtend();
         parent.setId("CROOT");
-        categoryMap.put("CROOT",parent);
+        categoryMap.put("CROOT", parent);
       }
-      if(parent.getCategoryExtends() == null){
-        parent.setCategoryExtends(new ArrayList<>());
+      if (parent.getChildren() == null) {
+        parent.setChildren(new ArrayList<>());
       }
-      parent.getCategoryExtends().add(category);
+      parent.getChildren().add(category);
     });
 
-    List<Category> categories = categoryMap.get("CROOT").getCategoryExtends();
+    List<Category> categories = categoryMap.get("CROOT").getChildren();
 
     return categories;
 

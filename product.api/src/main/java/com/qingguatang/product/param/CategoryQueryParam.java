@@ -17,6 +17,8 @@ public class CategoryQueryParam {
 
   private int sort;
 
+  private String parentCategoryId;
+
   public String getName() {
     return name;
   }
@@ -47,5 +49,13 @@ public class CategoryQueryParam {
 
   public void setSort(int sort) {
     this.sort = sort;
+  }
+
+  public String getParentCategoryId() {
+    return parentCategoryId;
+  }
+
+  public void setParentCategoryId(String parentCategoryId) {
+    this.parentCategoryId = parentCategoryId;
   }
 }

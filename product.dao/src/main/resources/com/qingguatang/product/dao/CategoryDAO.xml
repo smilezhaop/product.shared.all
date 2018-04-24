@@ -37,10 +37,15 @@
       parent_category_id = #{parentCategoryId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <!-- 查询 id, gmt_created, gmt_modified, name, media_id, status, sort, parent_category_id-->
+  <!-- 查询 -->
   <select id="query" parameterType="com.qingguatang.product.param.CategoryQueryParam"
     resultMap="BaseResultMap">
-    select *
+    select id, gmt_created, gmt_modified, name, media_id, status, sort, parent_category_id
     from product_category
+    <where>
+
+     <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(parentCategoryId)"> parent_category_id = #{parentCategoryId} or parent_category_id = ''</if>
+
+    </where>
   </select>
 </mapper>
