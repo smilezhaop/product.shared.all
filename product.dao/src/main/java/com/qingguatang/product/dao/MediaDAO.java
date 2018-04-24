@@ -8,37 +8,30 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface MediaDAO {
 
-    /**
-     * 删除
-     * @param id
-     * @return
-     */
-    int deleteByPrimaryKey(Long id);
+  /**
+   * 删除
+   */
+  int deleteByPrimaryKey(Long id);
 
-    /**
-     * 添加插入
-     * @param record
-     * @return
-     */
-    int insert(MediaDO record);
+  /**
+   * 添加插入
+   */
+  int insert(MediaDO record);
 
-    /**
-     * 根据ID查询
-     * @param id
-     * @return
-     */
-    MediaDO selectByPrimaryKey(Long id);
+  /**
+   * 根据ID查询
+   */
+  MediaDO selectByPrimaryKey(Long id);
 
-    /**
-     * 根据参数查询
-     * @return
-     */
-    List<MediaDO> query(MediaQueryParam param);
+  /**
+   * 根据参数查询
+   */
+  List<MediaDO> query(MediaQueryParam param);
 
-    /**
-     *
-     * @param record
-     * @return
-     */
-    int updateByPrimaryKey(MediaDO record);
+  /**
+   *
+   * @param record
+   * @return
+   */
+  int updateByPrimaryKey(MediaDO record);
 }

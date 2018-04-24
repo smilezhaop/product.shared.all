@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 类目查询服务：提供类目查询功能
+ *
  * @author zhaopei
  * @date 2018/4/8
  */
@@ -16,10 +17,8 @@ public interface CategorySearchApi {
 
   /**
    * 查询API
-   * @param param
-   * @return
    */
-  @RequestMapping(path = "api/category/query",produces = "application/json")
+  @RequestMapping(path = "api/category/query", produces = "application/json")
   @ResponseBody
   public List<Category> query(CategoryQueryParam param);
 

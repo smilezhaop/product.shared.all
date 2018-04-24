@@ -2,6 +2,7 @@ package com.qingguatang.product.param;
 
 /**
  * CategoryParam的描述:<br>
+ *
  * @author zhaopei
  * @date 2018/4/8
  */

@@ -12,11 +12,12 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class CategoryServiceImpl implements CategoryService {
+
   @Autowired
   CategoryDAO categoryDAO;
 
   @Override
-  public Result<Category> addOrUpdate(Category category){
+  public Result<Category> addOrUpdate(Category category) {
 
     CategoryDO categoryDO = new CategoryDO();
     categoryDO.setId(category.getId());
@@ -27,9 +28,9 @@ public class CategoryServiceImpl implements CategoryService {
     categoryDO.setParentCategoryId(category.getParentCategoryId());
 
     CategoryDO categoryDoQuery = categoryDAO.selectById(category.getId());
-    if(categoryDoQuery.equals("")){//add
+    if (categoryDoQuery.equals("")) {//add
       categoryDAO.insert(categoryDO);
-    }else{//update
+    } else {//update
       categoryDAO.update(categoryDO);
     }
     Result result = new Result<Category>();
@@ -41,7 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
   }
 
   @Override
-  public Result delete(String categoryId){
+  public Result delete(String categoryId) {
     Result result = new Result();
     categoryDAO.delete(categoryId);
     result.setSuccess(true);
@@ -50,13 +51,13 @@ public class CategoryServiceImpl implements CategoryService {
   }
 
   @Override
-  public Result sort(List<Category> categorys){
+  public Result sort(List<Category> categorys) {
 
     return null;
   }
 
   @Override
-  public Result<Media> add(Media media){
+  public Result<Media> add(Media media) {
 
     return null;
   }

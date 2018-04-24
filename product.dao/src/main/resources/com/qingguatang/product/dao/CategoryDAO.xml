@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qingguatang.product.dao.CategoryDAO">
   <resultMap id="BaseResultMap" type="com.qingguatang.product.dataobject.CategoryDO">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
-    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="media_id" jdbcType="VARCHAR" property="mediaId" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
-    <result column="sort" jdbcType="BIGINT" property="sort" />
-    <result column="parent_category_id" jdbcType="VARCHAR" property="parentCategoryId" />
+    <id column="id" jdbcType="VARCHAR" property="id"/>
+    <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated"/>
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+    <result column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="media_id" jdbcType="VARCHAR" property="mediaId"/>
+    <result column="status" jdbcType="VARCHAR" property="status"/>
+    <result column="sort" jdbcType="BIGINT" property="sort"/>
+    <result column="parent_category_id" jdbcType="VARCHAR" property="parentCategoryId"/>
   </resultMap>
   <!-- 删除-->
   <delete id="delete" parameterType="java.lang.String">
@@ -43,9 +44,9 @@
     select id, gmt_created, gmt_modified, name, media_id, status, sort, parent_category_id
     from product_category
     <where>
-
-     <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(parentCategoryId)"> parent_category_id = #{parentCategoryId} or parent_category_id = ''</if>
-
+      <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(parentCategoryId)">
+        parent_category_id = #{parentCategoryId} or parent_category_id = ''
+      </if>
     </where>
   </select>
 </mapper>

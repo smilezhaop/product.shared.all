@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class MediaSearchApiControl implements MediaSearchApi{
+public class MediaSearchApiControl implements MediaSearchApi {
 
   @Autowired
   private MediaDAO mediaDAO;
@@ -28,12 +28,11 @@ public class MediaSearchApiControl implements MediaSearchApi{
 
     pagingDatas.setTotalItems(mediaList.size());
     int perItem = 9;//每页显示9条
-    pagingDatas.setTotalPages((mediaList.size()/perItem));
+    pagingDatas.setTotalPages((mediaList.size() / perItem));
 
     List<Media> medias = new ArrayList<>();
     //转换do-model
-    for (MediaDO mediaDO:mediaList
-    ) {
+    for (MediaDO mediaDO : mediaList) {
       Media media = mediaDO.convert();
       medias.add(media);
     }

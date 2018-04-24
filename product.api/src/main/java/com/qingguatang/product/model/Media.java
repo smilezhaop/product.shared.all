@@ -2,6 +2,7 @@ package com.qingguatang.product.model;
 
 /**
  * 多媒体模型
+ *
  * @author zhaopei
  * @date 2018/4/8
  */

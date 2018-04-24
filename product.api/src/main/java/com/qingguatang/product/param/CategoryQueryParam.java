@@ -4,6 +4,7 @@ import com.qingguatang.product.model.CategoryStatus;
 
 /**
  * 类目查询参数
+ *
  * @author zhaopei
  * @date 2018/4/8
  */

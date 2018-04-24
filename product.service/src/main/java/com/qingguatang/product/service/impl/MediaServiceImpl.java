@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class MediaServiceImpl implements MediaService{
+public class MediaServiceImpl implements MediaService {
 
   @Autowired
   private MediaDAO mediaDAO;
 
   @Override
-  public Result<Media> add(Media media){
+  public Result<Media> add(Media media) {
     MediaDO mediaDO = new MediaDO();
     mediaDO.setId(media.getId());
     mediaDO.setRefId(media.getRefId());
@@ -31,13 +31,12 @@ public class MediaServiceImpl implements MediaService{
   }
 
   @Override
-  public Result delete(String mediaId){
-    int size =mediaDAO.deleteByPrimaryKey(Long.valueOf(mediaId));
+  public Result delete(String mediaId) {
+    int size = mediaDAO.deleteByPrimaryKey(Long.valueOf(mediaId));
     Result result = new Result();
-    if(size == 1){
+    if (size == 1) {
       result.setSuccess(true);
-    }else
-    {
+    } else {
       result.setSuccess(false);
     }
     return result;
