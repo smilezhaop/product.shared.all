@@ -26,18 +26,29 @@
       #{name,jdbcType=VARCHAR}, #{mediaId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
       #{sort,jdbcType=BIGINT}, #{parentCategoryId,jdbcType=VARCHAR})
   </insert>
-  <!--更新 -->
+  <!--更新 gmt_created = #{gmt_created,jdbcType="TIMESTAMP}-->
   <update id="update" parameterType="com.qingguatang.product.dataobject.CategoryDO">
     update product_category
-    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      name = #{name,jdbcType=VARCHAR},
-      media_id = #{mediaId,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR},
-      sort = #{sort,jdbcType=BIGINT},
-      parent_category_id = #{parentCategoryId,jdbcType=VARCHAR}
+    set
+    gmt_modified = now(),
+    name = #{name,jdbcType=VARCHAR},
+    media_id = #{mediaId,jdbcType=VARCHAR},
+    status = #{status,jdbcType=VARCHAR},
+    sort = #{sort,jdbcType=BIGINT},
+    parent_category_id = #{parentCategoryId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <select id="selectById" parameterType="java.lang.String"
+    resultMap="BaseResultMap">
+    select *
+    from product_category
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="queryAll" resultMap="BaseResultMap">
+    select *
+    from product_category
+  </select>
+
   <!-- 查询 -->
   <select id="query" parameterType="com.qingguatang.product.param.CategoryQueryParam"
     resultMap="BaseResultMap">

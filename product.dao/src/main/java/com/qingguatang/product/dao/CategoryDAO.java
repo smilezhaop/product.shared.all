@@ -24,7 +24,7 @@ public interface CategoryDAO {
 
 
     /**
-     * 查询
+     * 根据参数查询
      * @return
      */
     List<CategoryDO> query(CategoryQueryParam param);
@@ -35,6 +35,13 @@ public interface CategoryDAO {
      * @return
      */
     CategoryDO selectById(String id);
+
+    /**
+     * 查询所有
+     * @return
+     */
+    List<CategoryDO> queryAll();
+
 
     /**
      * 更新修改

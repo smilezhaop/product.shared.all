@@ -19,9 +19,9 @@ public interface MediaDAO {
   int insert(MediaDO record);
 
   /**
-   * 根据ID查询
+   * 查询所有
    */
-  MediaDO selectByPrimaryKey(Long id);
+  List<MediaDO> selectAll();
 
   /**
    * 根据参数查询

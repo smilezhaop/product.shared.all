@@ -3,12 +3,15 @@ package com.qingguatang.product.service.impl;
 import com.qingguatang.product.dao.CategoryDAO;
 import com.qingguatang.product.dataobject.CategoryDO;
 import com.qingguatang.product.model.Category;
+import com.qingguatang.product.model.CategoryStatus;
 import com.qingguatang.product.model.Media;
 import com.qingguatang.product.model.Result;
 import com.qingguatang.product.service.CategoryService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class CategoryServiceImpl implements CategoryService {
@@ -28,7 +31,7 @@ public class CategoryServiceImpl implements CategoryService {
     categoryDO.setParentCategoryId(category.getParentCategoryId());
 
     CategoryDO categoryDoQuery = categoryDAO.selectById(category.getId());
-    if (categoryDoQuery.equals("")) {//add
+    if (categoryDoQuery==null) {//add
       categoryDAO.insert(categoryDO);
     } else {//update
       categoryDAO.update(categoryDO);

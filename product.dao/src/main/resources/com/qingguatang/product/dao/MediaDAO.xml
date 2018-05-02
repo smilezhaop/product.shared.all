@@ -32,10 +32,8 @@
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, ref_Id, type, url, account_id, gmt_created, gmt_modified
-    from product_media_resource
-    where id = #{id,jdbcType=BIGINT}
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select *  from product_media_resource
   </select>
   <select id="query" parameterType="com.qingguatang.product.param.MediaQueryParam"
     resultMap="BaseResultMap">
