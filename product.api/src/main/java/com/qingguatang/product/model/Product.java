@@ -26,9 +26,9 @@ public class Product {
   //商品主图URL
   private String mainPictUrl;
   //商品售出数量
-  private int soldQuantity;
+  private Long soldQuantity;
   //商品库存
-  private int stock;
+  private Long stock;
   //商品所属用户ID
   private String accountId;
   //商品编码
@@ -111,19 +111,19 @@ public class Product {
     this.mainPictUrl = mainPictUrl;
   }
 
-  public int getSoldQuantity() {
+  public Long getSoldQuantity() {
     return soldQuantity;
   }
 
-  public void setSoldQuantity(int soldQuantity) {
+  public void setSoldQuantity(Long soldQuantity) {
     this.soldQuantity = soldQuantity;
   }
 
-  public int getStock() {
+  public Long getStock() {
     return stock;
   }
 
-  public void setStock(int stock) {
+  public void setStock(Long stock) {
     this.stock = stock;
   }
 

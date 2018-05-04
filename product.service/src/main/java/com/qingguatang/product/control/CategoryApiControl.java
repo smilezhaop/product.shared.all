@@ -95,8 +95,7 @@ public class CategoryApiControl extends CategorySearchApiControl implements Cate
   private List<Category> getCategories() {
     List<Category> categoryList = new ArrayList<>();
     List<CategoryDO> categoryDOS = categoryDAO.queryAll();
-    for (CategoryDO category : categoryDOS
-        ) {
+    for (CategoryDO category : categoryDOS) {
       categoryList.add(category.convert());
     }
     return categoryList;

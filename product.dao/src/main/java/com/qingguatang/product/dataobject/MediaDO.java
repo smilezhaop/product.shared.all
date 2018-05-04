@@ -134,7 +134,7 @@ public class MediaDO {
   }
 
   /**
-   * model->do
+   * do->model
    * @return
    */
   public Media convert() {

@@ -26,7 +26,7 @@
       #{name,jdbcType=VARCHAR}, #{mediaId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
       #{sort,jdbcType=BIGINT}, #{parentCategoryId,jdbcType=VARCHAR})
   </insert>
-  <!--更新 gmt_created = #{gmt_created,jdbcType="TIMESTAMP}-->
+  <!--更新 -->
   <update id="update" parameterType="com.qingguatang.product.dataobject.CategoryDO">
     update product_category
     set
@@ -44,12 +44,13 @@
     from product_category
     where id = #{id,jdbcType=VARCHAR}
   </select>
+  <!-- 查询所有-->
   <select id="queryAll" resultMap="BaseResultMap">
     select *
     from product_category
   </select>
 
-  <!-- 查询 -->
+  <!-- 条件查询 -->
   <select id="query" parameterType="com.qingguatang.product.param.CategoryQueryParam"
     resultMap="BaseResultMap">
     select id, gmt_created, gmt_modified, name, media_id, status, sort, parent_category_id

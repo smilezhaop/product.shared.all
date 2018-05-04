@@ -10,12 +10,13 @@ import com.qingguatang.product.model.CategoryStatus;
  */
 public class CategoryQueryParam {
 
+  //类目名称
   private String name;
-
+  //图片关联ID
   private String refId;
-
+  //类目状态
   private CategoryStatus status;
-
+  //类目排序
   private int sort;
 
   private String parentCategoryId;

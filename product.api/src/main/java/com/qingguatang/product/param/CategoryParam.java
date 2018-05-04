@@ -8,8 +8,9 @@ package com.qingguatang.product.param;
  */
 public class CategoryParam {
 
+  //类目名称
   private String name;
-
+  //类目ID
   private String id;
 
   public String getName() {

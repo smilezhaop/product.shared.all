@@ -150,7 +150,7 @@ public class CategoryDO {
   }
 
   /**
-   * model->do
+   * do->model
    */
   public CategoryExtend convert() {
     CategoryExtend categoryExtend = new CategoryExtend();

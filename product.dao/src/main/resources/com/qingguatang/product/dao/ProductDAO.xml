@@ -20,10 +20,7 @@
     <result column="offline_time" jdbcType="DATE" property="offlineTime" />
     <result column="media_id" jdbcType="VARCHAR" property="mediaId" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from product_product
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
+  <!-- 插入记录-->
   <insert id="insert" parameterType="com.qingguatang.product.dataobject.ProductDO">
     insert into product_product (id, gmt_created, gmt_modifiled, 
       title, category_id, show_price, 
@@ -31,13 +28,14 @@
       stock, account_id, product_code, 
       status, description, online_time, 
       offline_time, media_id)
-    values (#{id,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=DATE}, #{gmtModifiled,jdbcType=DATE}, 
+    values (#{id,jdbcType=VARCHAR}, now(), now(),
       #{title,jdbcType=VARCHAR}, #{categoryId,jdbcType=VARCHAR}, #{showPrice,jdbcType=VARCHAR}, 
       #{linePrice,jdbcType=VARCHAR}, #{mainPictUrl,jdbcType=VARCHAR}, #{soldQuantity,jdbcType=BIGINT}, 
       #{stock,jdbcType=BIGINT}, #{accountId,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, 
       #{status,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{onlineTime,jdbcType=DATE}, 
       #{offlineTime,jdbcType=DATE}, #{mediaId,jdbcType=VARCHAR})
   </insert>
+  <!-- 更新 -->
   <update id="updateByPrimaryKey" parameterType="com.qingguatang.product.dataobject.ProductDO">
     update product_product
     set gmt_created = #{gmtCreated,jdbcType=DATE},
@@ -58,16 +56,39 @@
       media_id = #{mediaId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <!-- 批量更新 -->
+  <update id="batchUpdate" parameterType="java.util.List">
+    update product_product
+    set
+    gmt_modifiled = now(),
+    status = #{status,jdbcType=VARCHAR},
+    online_time = #{onlineTime,jdbcType=DATE},
+    where id in
+    <foreach collection="list" index="index" item="item"
+      separator="," open="(" close=")">
+      #{item.id,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+
+  <!-- 查询 -->
+  <select id="selectByKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select id, gmt_created, gmt_modifiled, title, category_id, show_price, line_price, 
     main_pict_url, sold_quantity, stock, account_id, product_code, status, description, 
     online_time, offline_time, media_id
     from product_product
     where id = #{id,jdbcType=VARCHAR}
   </select>
+  <!-- 查询所有-->
   <select id="selectAll" resultMap="BaseResultMap">
     select id, gmt_created, gmt_modifiled, title, category_id, show_price, line_price, 
     main_pict_url, sold_quantity, stock, account_id, product_code, status, description, 
+    online_time, offline_time, media_id
+    from product_product
+  </select>
+  <!-- 条件查询-->
+  <select id="query" resultMap="BaseResultMap">
+    select id, gmt_created, gmt_modifiled, title, category_id, show_price, line_price,
+    main_pict_url, sold_quantity, stock, account_id, product_code, status, description,
     online_time, offline_time, media_id
     from product_product
   </select>

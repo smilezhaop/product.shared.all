@@ -12,13 +12,10 @@ public class MediaQueryParam {
 
   //关联ID
   private String refId;
-
   //媒体类型
   private MediaType type;
-
   //资源URL
   private String url;
-
   //资源上传者账户ID
   private String accountId;
 
