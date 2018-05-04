@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingguatang.product.dao.ProductDAO">
+  <resultMap id="BaseResultMap" type="com.qingguatang.product.dataobject.ProductDO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="gmt_created" jdbcType="DATE" property="gmtCreated" />
+    <result column="gmt_modifiled" jdbcType="DATE" property="gmtModifiled" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="category_id" jdbcType="VARCHAR" property="categoryId" />
+    <result column="show_price" jdbcType="VARCHAR" property="showPrice" />
+    <result column="line_price" jdbcType="VARCHAR" property="linePrice" />
+    <result column="main_pict_url" jdbcType="VARCHAR" property="mainPictUrl" />
+    <result column="sold_quantity" jdbcType="BIGINT" property="soldQuantity" />
+    <result column="stock" jdbcType="BIGINT" property="stock" />
+    <result column="account_id" jdbcType="VARCHAR" property="accountId" />
+    <result column="product_code" jdbcType="VARCHAR" property="productCode" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="online_time" jdbcType="DATE" property="onlineTime" />
+    <result column="offline_time" jdbcType="DATE" property="offlineTime" />
+    <result column="media_id" jdbcType="VARCHAR" property="mediaId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from product_product
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.qingguatang.product.dataobject.ProductDO">
+    insert into product_product (id, gmt_created, gmt_modifiled, 
+      title, category_id, show_price, 
+      line_price, main_pict_url, sold_quantity, 
+      stock, account_id, product_code, 
+      status, description, online_time, 
+      offline_time, media_id)
+    values (#{id,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=DATE}, #{gmtModifiled,jdbcType=DATE}, 
+      #{title,jdbcType=VARCHAR}, #{categoryId,jdbcType=VARCHAR}, #{showPrice,jdbcType=VARCHAR}, 
+      #{linePrice,jdbcType=VARCHAR}, #{mainPictUrl,jdbcType=VARCHAR}, #{soldQuantity,jdbcType=BIGINT}, 
+      #{stock,jdbcType=BIGINT}, #{accountId,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{onlineTime,jdbcType=DATE}, 
+      #{offlineTime,jdbcType=DATE}, #{mediaId,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.qingguatang.product.dataobject.ProductDO">
+    update product_product
+    set gmt_created = #{gmtCreated,jdbcType=DATE},
+      gmt_modifiled = #{gmtModifiled,jdbcType=DATE},
+      title = #{title,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=VARCHAR},
+      show_price = #{showPrice,jdbcType=VARCHAR},
+      line_price = #{linePrice,jdbcType=VARCHAR},
+      main_pict_url = #{mainPictUrl,jdbcType=VARCHAR},
+      sold_quantity = #{soldQuantity,jdbcType=BIGINT},
+      stock = #{stock,jdbcType=BIGINT},
+      account_id = #{accountId,jdbcType=VARCHAR},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      online_time = #{onlineTime,jdbcType=DATE},
+      offline_time = #{offlineTime,jdbcType=DATE},
+      media_id = #{mediaId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, gmt_created, gmt_modifiled, title, category_id, show_price, line_price, 
+    main_pict_url, sold_quantity, stock, account_id, product_code, status, description, 
+    online_time, offline_time, media_id
+    from product_product
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, gmt_created, gmt_modifiled, title, category_id, show_price, line_price, 
+    main_pict_url, sold_quantity, stock, account_id, product_code, status, description, 
+    online_time, offline_time, media_id
+    from product_product
+  </select>
+</mapper>
