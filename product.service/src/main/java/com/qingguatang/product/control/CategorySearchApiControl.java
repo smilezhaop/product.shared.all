@@ -16,7 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+/**
+ * 类目查询服务实现
+ *
+ * @author zhaopei
+ * @date 2018/4/9
+ */
 public class CategorySearchApiControl implements CategorySearchApi {
 
   @Autowired

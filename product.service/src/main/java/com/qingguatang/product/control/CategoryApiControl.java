@@ -17,6 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
 /**
+ * 类目服务实现
+ *
  * @author zhaopei
  * @date 2018/4/9
  */

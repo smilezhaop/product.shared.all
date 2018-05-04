@@ -14,6 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
+/**
+ * 媒体服务实现
+ *
+ * @author zhaopei
+ * @date 2018/4/15
+ */
 @Controller
 public class MediaSearchApiControl implements MediaSearchApi {
 
@@ -29,7 +35,7 @@ public class MediaSearchApiControl implements MediaSearchApi {
 
     pagingDatas.setTotalItems(mediaList.size());
     int perItem = 9;//每页显示9条
-    pagingDatas.setTotalPages((mediaList.size() / perItem)+1);
+    pagingDatas.setTotalPages((mediaList.size() / perItem) + 1);
 
     List<Media> medias = new ArrayList<>();
     //转换do-model
