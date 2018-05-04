@@ -91,5 +91,23 @@ public class ProductDAOTest {
     assertThat(productDO.getTitle().compareTo("test"));
   }
 
+  @Test
+  public void updateTest(){
+    ProductDO productDO = new ProductDO();
+    productDO.setId("p001");
+    productDO.setTitle("testUpdate");
+    productDO.setAccountId("zp01");
+    productDO.setCategoryId("A002");
+    productDO.setDescription("testProductDO insert");
+    productDO.setMainPictUrl("http://qwer");
+    productDO.setShowPrice("100");
+    productDO.setLinePrice("99");
+    productDO.setProductCode("01");
+    productDO.setOnlineTime(new Date());
+    productDO.setOfflineTime(new Date());
+
+    int size = productDAO.updateByKey(productDO);
+    assertThat(size).isGreaterThan(0);
+  }
 
 }

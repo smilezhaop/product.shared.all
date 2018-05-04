@@ -36,10 +36,10 @@
       #{offlineTime,jdbcType=DATE}, #{mediaId,jdbcType=VARCHAR})
   </insert>
   <!-- 更新 -->
-  <update id="updateByPrimaryKey" parameterType="com.qingguatang.product.dataobject.ProductDO">
+  <update id="updateByKey" parameterType="com.qingguatang.product.dataobject.ProductDO">
     update product_product
-    set gmt_created = #{gmtCreated,jdbcType=DATE},
-      gmt_modifiled = #{gmtModifiled,jdbcType=DATE},
+    set
+      gmt_modifiled = now(),
       title = #{title,jdbcType=VARCHAR},
       category_id = #{categoryId,jdbcType=VARCHAR},
       show_price = #{showPrice,jdbcType=VARCHAR},
