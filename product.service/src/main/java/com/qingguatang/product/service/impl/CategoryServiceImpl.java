@@ -17,18 +17,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class CategoryServiceImpl implements CategoryService {
 
   @Autowired
-  CategoryDAO categoryDAO;
+  private  CategoryDAO categoryDAO;
 
   @Override
   public Result<Category> addOrUpdate(Category category) {
 
-    CategoryDO categoryDO = new CategoryDO();
-    categoryDO.setId(category.getId());
-    categoryDO.setName(category.getName());
-    categoryDO.setMediaId(category.getMediaId());
-    categoryDO.setStatus(category.getStatus().toString());
-    categoryDO.setSort(category.getSort());
-    categoryDO.setParentCategoryId(category.getParentCategoryId());
+    //model->do
+    CategoryDO categoryDO = getCategoryDO(category);
 
     CategoryDO categoryDoQuery = categoryDAO.selectById(category.getId());
     if (categoryDoQuery==null) {//add
@@ -42,6 +37,17 @@ public class CategoryServiceImpl implements CategoryService {
     result.setData(category);
 
     return result;
+  }
+
+  private CategoryDO getCategoryDO(Category category) {
+    CategoryDO categoryDO = new CategoryDO();
+    categoryDO.setId(category.getId());
+    categoryDO.setName(category.getName());
+    categoryDO.setMediaId(category.getMediaId());
+    categoryDO.setStatus(category.getStatus().toString());
+    categoryDO.setSort(category.getSort());
+    categoryDO.setParentCategoryId(category.getParentCategoryId());
+    return categoryDO;
   }
 
   @Override

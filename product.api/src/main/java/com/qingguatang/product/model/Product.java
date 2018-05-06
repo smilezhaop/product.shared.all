@@ -190,4 +190,6 @@ public class Product {
   public void setMedia(Media media) {
     this.media = media;
   }
+
+
 }

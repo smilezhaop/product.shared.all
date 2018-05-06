@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.qingguatang.product.dataobject.ProductDO;
 import java.util.Date;
-import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -92,7 +91,7 @@ public class ProductDAOTest {
   }
 
   @Test
-  public void updateTest(){
+  public void updateTest() {
     ProductDO productDO = new ProductDO();
     productDO.setId("p001");
     productDO.setTitle("testUpdate");
