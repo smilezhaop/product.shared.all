@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qingguatang.product.dao.ProductDAO">
   <resultMap id="BaseResultMap" type="com.qingguatang.product.dataobject.ProductDO">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="gmt_created" jdbcType="DATE" property="gmtCreated" />
-    <result column="gmt_modifiled" jdbcType="DATE" property="gmtModifiled" />
-    <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="category_id" jdbcType="VARCHAR" property="categoryId" />
-    <result column="show_price" jdbcType="VARCHAR" property="showPrice" />
-    <result column="line_price" jdbcType="VARCHAR" property="linePrice" />
-    <result column="main_pict_url" jdbcType="VARCHAR" property="mainPictUrl" />
-    <result column="sold_quantity" jdbcType="BIGINT" property="soldQuantity" />
-    <result column="stock" jdbcType="BIGINT" property="stock" />
-    <result column="account_id" jdbcType="VARCHAR" property="accountId" />
-    <result column="product_code" jdbcType="VARCHAR" property="productCode" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
-    <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="online_time" jdbcType="DATE" property="onlineTime" />
-    <result column="offline_time" jdbcType="DATE" property="offlineTime" />
-    <result column="media_id" jdbcType="VARCHAR" property="mediaId" />
+    <id column="id" jdbcType="VARCHAR" property="id"/>
+    <result column="gmt_created" jdbcType="DATE" property="gmtCreated"/>
+    <result column="gmt_modifiled" jdbcType="DATE" property="gmtModifiled"/>
+    <result column="title" jdbcType="VARCHAR" property="title"/>
+    <result column="category_id" jdbcType="VARCHAR" property="categoryId"/>
+    <result column="show_price" jdbcType="VARCHAR" property="showPrice"/>
+    <result column="line_price" jdbcType="VARCHAR" property="linePrice"/>
+    <result column="main_pict_url" jdbcType="VARCHAR" property="mainPictUrl"/>
+    <result column="sold_quantity" jdbcType="BIGINT" property="soldQuantity"/>
+    <result column="stock" jdbcType="BIGINT" property="stock"/>
+    <result column="account_id" jdbcType="VARCHAR" property="accountId"/>
+    <result column="product_code" jdbcType="VARCHAR" property="productCode"/>
+    <result column="status" jdbcType="VARCHAR" property="status"/>
+    <result column="description" jdbcType="VARCHAR" property="description"/>
+    <result column="online_time" jdbcType="DATE" property="onlineTime"/>
+    <result column="offline_time" jdbcType="DATE" property="offlineTime"/>
+    <result column="media_id" jdbcType="VARCHAR" property="mediaId"/>
   </resultMap>
   <!-- 插入记录-->
   <insert id="insert" parameterType="com.qingguatang.product.dataobject.ProductDO">
@@ -56,6 +57,13 @@
       media_id = #{mediaId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <!-- 更新状态 -->
+  <update id="updateStatus" parameterType="com.qingguatang.product.dataobject.ProductDO">
+    update product_product
+    set gmt_modifiled = now(),
+     status = #{status,jdbcType=VARCHAR},
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
   <!-- 批量更新 -->
   <update id="batchUpdate" parameterType="java.util.List">
     update product_product
@@ -86,7 +94,8 @@
     from product_product
   </select>
   <!-- 条件查询-->
-  <select id="query" resultMap="BaseResultMap">
+  <select id="query" resultType="com.qingguatang.product.param.ProductQueryParam"
+    resultMap="BaseResultMap">
     select id, gmt_created, gmt_modifiled, title, category_id, show_price, line_price,
     main_pict_url, sold_quantity, stock, account_id, product_code, status, description,
     online_time, offline_time, media_id

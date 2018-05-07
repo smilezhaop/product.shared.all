@@ -30,9 +30,14 @@ public interface ProductDAO {
   List<ProductDO> selectAll();
 
   /**
-   * 更新
+   * 更新数据
    */
   int updateByKey(ProductDO record);
+
+  /**
+   * 更新状态
+   */
+  int updateStatus(ProductDO record);
 
   /**
    * 批量更新
