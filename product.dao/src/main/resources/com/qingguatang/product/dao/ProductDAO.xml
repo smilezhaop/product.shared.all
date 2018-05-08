@@ -70,10 +70,9 @@
     set
     gmt_modifiled = now(),
     status = #{status,jdbcType=VARCHAR},
-    online_time = #{onlineTime,jdbcType=DATE},
+    online_time = #{onlineTime,jdbcType=DATE}
     where id in
-    <foreach collection="list" index="index" item="item"
-      separator="," open="(" close=")">
+    <foreach collection="list"  item="item" separator=",">
       #{item.id,jdbcType=VARCHAR}
     </foreach>
   </update>
