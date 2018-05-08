@@ -61,7 +61,7 @@
   <update id="updateStatus" parameterType="com.qingguatang.product.dataobject.ProductDO">
     update product_product
     set gmt_modifiled = now(),
-     status = #{status,jdbcType=VARCHAR},
+     status = #{status,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <!-- 批量更新 -->

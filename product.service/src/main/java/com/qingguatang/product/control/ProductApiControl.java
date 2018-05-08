@@ -9,6 +9,7 @@ import com.qingguatang.product.model.Result;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * 商品服务实现
@@ -23,7 +24,10 @@ public class ProductApiControl extends ProductSearchApiControl implements Produc
   private ProductDAO productDAO;
 
   @Override
-  public Result<Product> save(Product product) {
+  public Result<Product> save(@RequestBody(required = false) Product product) {
+    //获取模拟测试的数据
+    product = getTestProduct();
+
     Result result = new Result<Product>();
 
     if (product == null) {
@@ -39,16 +43,16 @@ public class ProductApiControl extends ProductSearchApiControl implements Produc
 
     //审核通过，更新状态
     product.setStatus(ProductStatus.approved);
-    changeStatus(product.getId(),ProductStatus.approved);
+    changeStatus(product.getId(), ProductStatus.approved);
 
     //判定是否上架，上架更新状态
-    if(product.getOnlineTime().before(new Date())){
+    if (!product.getOnlineTime().after(new Date())) {
       product.setStatus(ProductStatus.online);
-      changeStatus(product.getId(),ProductStatus.online);
-    }else if(product.getOnlineTime().after(new Date())){
+      changeStatus(product.getId(), ProductStatus.online);
+    } else if (product.getOnlineTime().after(new Date())) {
       //定时上架，更新状态
       product.setStatus(ProductStatus.online);
-      changeStatus(product.getId(),ProductStatus.online);
+      changeStatus(product.getId(), ProductStatus.online);
     }
 
     result.setSuccess(true);
@@ -95,7 +99,28 @@ public class ProductApiControl extends ProductSearchApiControl implements Produc
     productDO.setDescription(product.getDescription());
     productDO.setOnlineTime(product.getOnlineTime());
     productDO.setOfflineTime(product.getOfflineTime());
-
+    productDO.setMediaId("moo");
     return productDO;
   }
+
+  //获取页面测试数据
+  private Product getTestProduct() {
+    Product testProduct = new Product();
+    testProduct.setId("p06");
+    testProduct.setTitle("pro06");
+    testProduct.setCategoryId("A003");
+    testProduct.setMainPictUrl("http://qgt006");
+    testProduct.setShowPrice("166");
+    testProduct.setLinePrice("111");
+    testProduct.setSoldQuantity(88l);
+    testProduct.setStock(12l);
+    testProduct.setProductCode("006");
+    testProduct.setAccountId("a06");
+    testProduct.setStatus(ProductStatus.draft);
+    testProduct.setDescription("this is testProduct");
+    testProduct.setOnlineTime(new Date());
+
+    return testProduct;
+  }
+
 }

@@ -30,7 +30,7 @@ public class ProductSearchApiControl implements ProductSearchApi {
 
     //参数判空处理
     if(param == null){
-      productDOList =productDAO.selectAll();
+      productDOList =productDAO.query(param);
     }else{
       productDOList = productDAO.query(param);
     }
@@ -42,6 +42,7 @@ public class ProductSearchApiControl implements ProductSearchApi {
 
     }
 
+    pagingData.setTotalItems(productList.size());
     pagingData.setData(productList);
 
     return pagingData;
