@@ -100,5 +100,14 @@
     main_pict_url, sold_quantity, stock, account_id, product_code, status, description,
     online_time, offline_time, media_id
     from product_product
+    <where>1 = 1
+      <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(id)">and id = #{id}</if>
+      <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(title)">and title = #{title}</if>
+      <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(status)">and status = #{status}
+      </if>
+      <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(onlineTime)">and onlineTime =
+        #{onlineTime}
+      </if>
+    </where>
   </select>
 </mapper>
